@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پنل تبلیغات روبیکا</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:tahoma;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e1b4b,#312e81);
+min-height:100vh;
+color:white;
+overflow-x:hidden;
+}
+
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+.circle{
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,0.08);
+animation:float 8s infinite ease-in-out;
+}
+
+.circle:nth-child(1){width:200px;height:200px;top:10%;right:-50px;}
+.circle:nth-child(2){width:150px;height:150px;bottom:10%;left:-30px;animation-delay:2s;}
+
+@keyframes float{50%{transform:translateY(-30px);}}
+
+.container{
+padding:20px;
+max-width:600px;
+margin:auto;
+}
+
+.hero{
+text-align:center;
+padding:50px 20px;
+}
+
+.hero h1{
+font-size:40px;
+margin-bottom:15px;
+}
+
+.hero p{
+opacity:.9;
+font-size:18px;
+}
+
+.btn{
+display:block;
+width:100%;
+padding:18px;
+margin-top:15px;
+border:none;
+border-radius:25px;
+font-size:18px;
+font-weight:bold;
+color:white;
+cursor:pointer;
+text-decoration:none;
+text-align:center;
+transition:.3s;
+}
+
+.btn:hover{transform:scale(1.03);}
+
+.telegram{background:#2563eb;}
+.bot{background:#7c3aed;}
+.buy{background:#16a34a;}
+.group{background:#111827;}
+
+.card{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(15px);
+border-radius:25px;
+padding:20px;
+margin-top:20px;
+}
+
+.price{
+background:#1e293b;
+padding:15px;
+border-radius:20px;
+margin-top:10px;
+text-align:center;
+font-size:18px;
+}
+
+.faq{
+margin-top:12px;
+padding:15px;
+background:#1f2937;
+border-radius:15px;
+}
+
+.modal {
+display: none;
+position: fixed;
+top: 0; left: 0;
+width: 100%; height: 100%;
+background: rgba(0,0,0,0.9);
+z-index: 1000;
+align-items: center;
+justify-content: center;
+}
+
+.modal-content {
+background: #1e293b;
+padding: 25px;
+border-radius: 20px;
+max-width: 90%;
+text-align: center;
+}
+
+.close {
+position: absolute;
+top: 15px;
+right: 20px;
+font-size: 30px;
+cursor: pointer;
+color: #ccc;
+}
+
+.highlight {
+color: #fbbf24;
+font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<div class="bg">
+<div class="circle"></div>
+<div class="circle"></div>
+</div>
+
+<div class="container">
+
+<div class="hero">
+<h1>🚀 پنل تبلیغات روبیکا</h1>
+<p>تبلیغات سریع، واقعی و هدفمند برای کانال، گروه و ربات شما</p>
+</div>
+
+<a href="#" onclick="showBots()" class="btn telegram">
+💬 شروع چت با بات
+</a>
+
+<a href="#" onclick="showBots()" class="btn bot">
+🤖 آیدی ربات‌ها
+</a>
+
+<a href="#" onclick="showBuyModal()" class="btn buy">
+🛒 خرید تبلیغات
+</a>
+
+<a href="https://rubika.ir/Gameing019" target="_blank" class="btn group">
+📢 تبلیغ در کانال @Gameing019
+</a>
+
+<div class="card">
+<h2>📊 تعرفه تبلیغات</h2>
+<div class="price">
+<h3>ارسال تبلیغ در همه سرویس‌ها</h3>
+<p><strong>۱۵,۰۰۰ تومان</strong></p>
+</div>
+</div>
+
+<!-- نحوه کار -->
+<div class="card">
+<h2>⚡ نحوه کار در ۳ مرحله</h2>
+<div style="display:flex; flex-direction:column; gap:12px; margin-top:15px;">
+  <div style="background:#1e293b; padding:15px; border-radius:15px;">
+    <strong>۱. پرداخت</strong><br>
+    ۱۵,۰۰۰ تومان به شماره کارت عابدی
+  </div>
+  <div style="background:#1e293b; padding:15px; border-radius:15px;">
+    <strong>۲. ارسال رسید</strong><br>
+    رسید واقعی را به <span class="highlight">@admin10blue</span> بفرستید
+  </div>
+  <div style="background:#1e293b; padding:15px; border-radius:15px;">
+    <strong>۳. پخش تبلیغ</strong><br>
+    تبلیغ شما کمتر از ۲۴ ساعت پخش می‌شود
+  </div>
+</div>
+</div>
+
+<!-- نمونه تبلیغ -->
+<div class="card">
+<h2>📸 نمونه تبلیغ</h2>
+<p style="text-align:center; background:#1e293b; padding:20px; border-radius:15px; margin:10px 0; line-height:1.6;">
+<strong>جدیدترین بازی‌های روبیکا رو اینجا پیدا کن! 🔥</strong><br>
+هزاران کاربر فعال منتظر شما هستند.
+</p>
+</div><!-- نظرات کاربران -->
+<div class="card">
+<h2>💬 نظرات کاربران</h2>
+<div class="faq">«تبلیغم تو کانال @Gameing019 عالی پخش شد، بازدیدها واقعی بود» — @user1</div>
+<div class="faq">«سریع و حرفه‌ای، واقعاً راضی‌ام. دوباره خرید می‌کنم» — @user2</div>
+<div class="faq">«پشتیبانی خوب و تحویل سریع. پیشنهاد می‌کنم» — @user3</div>
+</div>
+
+<!-- آمار -->
+<div class="card">
+<h2>📈 آمار ما</h2>
+<p style="text-align:center; font-size:18px;">
+بیش از <strong>۱۲۰۰</strong> تبلیغ موفق<br>
+رضایت کاربران: <strong>۹۸٪</strong>
+</p>
+</div>
+
+<!-- سوالات متداول -->
+<div class="card">
+<h2>❓ سوالات متداول</h2>
+<div class="faq">تبلیغات چقدر زمان می‌برد؟<br>کمتر از ۲۴ ساعت.</div>
+<div class="faq">بازدیدها واقعی هستند؟<br>بله، کاملاً واقعی و از کاربران فعال.</div>
+<div class="faq">آیا می‌توانم متن تبلیغ را خودم بدهم؟<br>بله، کاملاً آزاد هستید.</div>
+</div>
+
+<!-- پشتیبانی -->
+<div class="card">
+<h2>📞 پشتیبانی</h2>
+<p style="text-align:center; font-size:18px;">
+<a href="https://rubika.ir/admin10blue" style="color:#60a5fa; text-decoration:none;">@admin10blue</a>
+</p>
+</div>
+
+<footer style="text-align:center; padding:30px; opacity:.7; margin-top:20px;">
+© 2026 Rubika Ads - تمام حقوق محفوظ است
+</footer>
+
+</div>
+
+<!-- Modal انتخاب بات -->
+<div id="botModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('botModal')">×</span>
+<h2>انتخاب ربات</h2><br><br>
+<a href="https://rubika.ir/Bomber10Bot" target="_blank" class="btn telegram" style="margin:10px 0;">@Bomber10Bot</a>
+<a href="https://rubika.ir/GrahamBot" target="_blank" class="btn bot" style="margin:10px 0;">@GrahamBot</a>
+</div>
+</div>
+
+<!-- Modal خرید -->
+<div id="buyModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('buyModal')">×</span>
+<h2>💳 پرداخت و خرید</h2>
+<p>مبلغ قابل پرداخت: <strong>۱۵,۰۰۰ تومان</strong></p>
+<p>شماره کارت:</p>
+<h3 style="background:#334155; padding:15px; border-radius:12px; direction:ltr; font-size:18px;">6219 8619 5608 1052</h3>
+<p>به نام: <strong>عابدی</strong></p>
+<br>
+<p>پس از پرداخت، <strong>رسید واقعی</strong> را به آیدی زیر ارسال کنید:</p>
+<a href="https://rubika.ir/admin10blue" target="_blank" style="color:#60a5fa; font-size:18px;">@admin10blue</a>
+</div>
+</div>
+
+<script>
+function showBots() {
+    document.getElementById('botModal').style.display = 'flex';
+}
+
+function showBuyModal() {
+    document.getElementById('buyModal').style.display = 'flex';
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+}
+
+window.onclick = function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        if (event.target === modal) modal.style.display = 'none';
+    });
+}
+</script>
+
+</body>
+</html>
