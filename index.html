@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>در حال بروزرسانی</title>
+  <!-- Font Awesome 6 (Free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Vazirmatn Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- Reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: #070b1a;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      direction: rtl;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ----- Animated background orbs ----- */
+    .bg-orbs {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(110px);
+      opacity: 0.5;
+      animation: orbFloat 22s ease-in-out infinite alternate;
+    }
+
+    .orb--1 {
+      width: 550px;
+      height: 550px;
+      background: #1e3a8a; /* آبی سرمه‌ای */
+      top: -12%;
+      left: -8%;
+      animation-duration: 24s;
+    }
+
+    .orb--2 {
+      width: 600px;
+      height: 600px;
+      background: #2563eb; /* آبی روشن‌تر */
+      bottom: -15%;
+      right: -10%;
+      animation-duration: 28s;
+      animation-delay: -5s;
+      opacity: 0.35;
+    }
+
+    .orb--3 {
+      width: 420px;
+      height: 420px;
+      background: #312e81; /* سرمه‌ای تیره */
+      top: 35%;
+      left: 55%;
+      animation-duration: 20s;
+      animation-delay: -8s;
+      opacity: 0.3;
+    }
+
+    .orb--4 {
+      width: 320px;
+      height: 320px;
+      background: #60a5fa; /* آبی ملایم */
+      bottom: 20%;
+      left: 12%;
+      animation-duration: 26s;
+      animation-delay: -3s;
+      opacity: 0.25;
+    }
+
+    @keyframes orbFloat {
+      0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+      33% { transform: translate(6%, -4%) scale(1.1) rotate(3deg); }
+      66% { transform: translate(-4%, 7%) scale(0.9) rotate(-3deg); }
+      100% { transform: translate(3%, -2%) scale(1.05) rotate(2deg); }
+    }
+
+    /* ----- Floating particles ----- */
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.02);
+      box-shadow: 0 0 60px rgba(37, 99, 235, 0.06);
+      animation: floatParticle 28s infinite alternate ease-in-out;
+    }
+
+    .particle:nth-child(1) { width: 70px; height: 70px; top: 10%; left: 6%; animation-duration: 30s; }
+    .particle:nth-child(2) { width: 110px; height: 110px; top: 68%; left: 82%; animation-duration: 34s; animation-delay: -4s; }
+    .particle:nth-child(3) { width: 45px; height: 45px; top: 85%; left: 18%; animation-duration: 22s; animation-delay: -9s; }
+    .particle:nth-child(4) { width: 90px; height: 90px; top: 22%; left: 72%; animation-duration: 28s; animation-delay: -2s; }
+    .particle:nth-child(5) { width: 55px; height: 55px; top: 50%; left: 8%; animation-duration: 24s; animation-delay: -7s; }
+    .particle:nth-child(6) { width: 130px; height: 130px; top: 5%; left: 45%; animation-duration: 32s; animation-delay: -3s; }
+    .particle:nth-child(7) { width: 35px; height: 35px; top: 94%; left: 60%; animation-duration: 20s; animation-delay: -5s; }
+    .particle:nth-child(8) { width: 80px; height: 80px; top: 42%; left: 40%; animation-duration: 26s; animation-delay: -11s; }
+
+    @keyframes floatParticle {
+      0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.3; }
+      33% { transform: translate(28px, -32px) scale(1.2) rotate(18deg); opacity: 0.7; }
+      66% { transform: translate(-22px, 28px) scale(0.8) rotate(-14deg); opacity: 0.2; }
+      100% { transform: translate(18px, -18px) scale(1.05) rotate(10deg); opacity: 0.6; }
+    }
+
+    /* ----- Main card – Glassmorphism ----- */
+    .card {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 720px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(32px) saturate(180%);
+      -webkit-backdrop-filter: blur(32px) saturate(180%);
+      border-radius: 60px;
+      padding: 50px 44px 44px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+      text-align: center;
+      opacity: 0;
+      animation: cardFadeIn 1.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+      transition: box-shadow 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .card:hover {
+      box-shadow: 0 60px 140px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(37, 99, 235, 0.12) inset;
+      transform: scale(1.005);
+    }
+
+    @keyframes cardFadeIn {
+      0% { opacity: 0; transform: translateY(40px) scale(0.96); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* ----- 3D-like icon (gear with glow) ----- */
+    .icon-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 30px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(37, 99, 235, 0.1) inset;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+      animation: pulseRing 5s ease-in-out infinite;
+    }
+
+    .icon-wrapper i {
+      font-size: 58px;
+      color: #60a5fa;
+      filter: drop-shadow(0 0 35px rgba(37, 99, 235, 0.3));
+      animation: spinGear 16s linear infinite;
+      transition: filter 0.4s ease;
+    }
+
+    .icon-wrapper:hover i {
+      animation-duration: 5s;
+      filter: drop-shadow(0 0 60px rgba(37, 99, 235, 0.6));
+    }
+
+    @keyframes spinGear {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.08); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    @keyframes pulseRing {
+      0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.08); }
+      50% { box-shadow: 0 0 0 28px rgba(37, 99, 235, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+    }
+
+    /* ----- Typography ----- */
+    .title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #e0e7ff 0%, #60a5fa 40%, #2563eb 80%, #1e3a8a 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      text-shadow: 0 0 80px rgba(37, 99, 235, 0.15);
+    }
+
+    .desc {
+      font-size: 1.08rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 2;
+      letter-spacing: 0.2px;
+    }
+
+    .thanks {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 8px;
+      letter-spacing: 0.5px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding-top: 28px;
+    }
+
+    .thanks i {
+      color: #f87171;
+      margin: 0 4px;
+      animation: heartBeat 2s ease-in-out infinite;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.25); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.15); }
+      60% { transform: scale(1); }
+    }
+
+    /* ----- Responsive ----- */
+    @media (max-width: 680px) {
+      .card {
+        padding: 36px 24px 32px;
+        border-radius: 44px;
+      }
+      .title {
+        font-size: 2.1rem;
+      }
+      .desc {
+        font-size: 0.98rem;
+        line-height: 1.8;
+      }
+      .icon-wrapper {
+        width: 90px;
+        height: 90px;
+      }
+      .icon-wrapper i {
+        font-size: 44px;
+      }
+      .thanks {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .card {
+        padding: 28px 18px 24px;
+        border-radius: 34px;
+      }
+      .title {
+        font-size: 1.65rem;
+      }
+      .desc {
+        font-size: 0.9rem;
+        margin-bottom: 24px;
+      }
+      .icon-wrapper {
+        width: 74px;
+        height: 74px;
+        margin-bottom: 22px;
+      }
+      .icon-wrapper i {
+        font-size: 36px;
+      }
+      .thanks {
+        font-size: 0.9rem;
+        padding-top: 20px;
+      }
+    }
+
+    /* ----- Scrollbar hide (optional) ----- */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* ----- Subtle mouse-follow glow (light) ----- */
+    .mouse-glow {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      transition: left 0.15s ease-out, top 0.15s ease-out;
+      will-change: left, top;
+      filter: blur(60px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== BACKGROUND ORBS ===== -->
+  <div class="bg-orbs">
+    <div class="orb orb--1"></div>
+    <div class="orb orb--2"></div>
+    <div class="orb orb--3"></div>
+    <div class="orb orb--4"></div>
+  </div>
+
+  <!-- ===== PARTICLES ===== -->
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- ===== MOUSE GLOW (نور دنبال‌کننده) ===== -->
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <!-- ===== MAIN CARD ===== -->
+  <div class="card">
+
+    <!-- Icon -->
+    <div class="icon-wrapper">
+      <i class="fas fa-gear"></i>
+    </div>
+
+    <!-- Title -->
+    <h1 class="title">🚀 وب‌سایت در حال بروزرسانی است</h1>
+
+    <!-- Description -->
+    <p class="desc">
+      در حال توسعه نسخه‌ای جدید، سریع‌تر و حرفه‌ای‌تر هستیم تا تجربه‌ای بهتر را برای شما فراهم کنیم. در این بروزرسانی ظاهر وب‌سایت بهبود یافته، امکانات جدید اضافه شده و عملکرد کلی سایت ارتقا پیدا کرده است. از صبوری و همراهی شما سپاسگزاریم و به‌زودی با نسخه‌ای قدرتمندتر بازخواهیم گشت.
+    </p>
+
+    <!-- Thank you message -->
+    <div class="thanks">
+      از شکیبایی و همراهی شما سپاسگزاریم <i class="fas fa-heart"></i>
+    </div>
+
+  </div>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // ===== MOUSE GLOW FOLLOW =====
+      const glow = document.getElementById('mouseGlow');
+      let mouseX = 0, mouseY = 0;
+      let currentX = 0, currentY = 0;
+
+      document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        glow.style.left = mouseX + 'px';
+        glow.style.top = mouseY + 'px';
+      });
+
+      // در موبایل نیازی به نور نیست، اما تداخلی ایجاد نمی‌کند.
+
+      // ===== PARALLAX (حرکت بسیار نرم کارت با موس) =====
+      const card = document.querySelector('.card');
+      let cardX = 0, cardY = 0;
+      let targetX = 0, targetY = 0;
+
+      document.addEventListener('mousemove', function(e) {
+        const rect = card.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const deltaX = (e.clientX - centerX) / rect.width;
+        const deltaY = (e.clientY - centerY) / rect.height;
+        targetX = deltaX * 10;   // حداکثر جابه‌جایی 10px
+        targetY = deltaY * 7;
+      });
+
+      function animateParallax() {
+        cardX += (targetX - cardX) * 0.06;
+        cardY += (targetY - cardY) * 0.06;
+        card.style.transform = 'translate(' + cardX + 'px, ' + cardY + 'px) scale(1.005)';
+        requestAnimationFrame(animateParallax);
+      }
+      animateParallax();
+
+    })();
+  </script>
+
+</body>
+</html>
